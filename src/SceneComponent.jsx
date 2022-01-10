@@ -1,18 +1,34 @@
-import React, { useEffect, useRef } from 'react'
+/* eslint-disable */
+import React, { useEffect, useRef } from "react";
 import { Engine, Scene } from "@babylonjs/core";
 
-const SceneComponent = (props) => {
-    const reactCanvas = useRef(null);
-  const { antialias, engineOptions, adaptToDeviceRatio, sceneOptions, onRender, onSceneReady, ...rest } = props;
+const SceneComponent = ({
+  antialias,
+  engineOptions,
+  adaptToDeviceRatio,
+  sceneOptions,
+  onRender,
+  onSceneReady,
+  ...rest
+}) => {
+  const reactCanvas = useRef(null);
+  // const {
+
+  // } = props;
 
   useEffect(() => {
     if (reactCanvas.current) {
-      const engine = new Engine(reactCanvas.current, antialias, engineOptions, adaptToDeviceRatio);
+      const engine = new Engine(
+        reactCanvas.current,
+        antialias,
+        engineOptions,
+        adaptToDeviceRatio
+      );
       const scene = new Scene(engine, sceneOptions);
       if (scene.isReady()) {
-        props.onSceneReady(scene);
+        onSceneReady(scene);
       } else {
-        scene.onReadyObservable.addOnce((scene) => props.onSceneReady(scene));
+        scene.onReadyObservable.addOnce((scene) => onSceneReady(scene));
       }
 
       engine.runRenderLoop(() => {
@@ -38,11 +54,9 @@ const SceneComponent = (props) => {
         }
       };
     }
-  }, [reactCanvas]);
+  }, [reactCanvas]); // eslint-disable-line no-use-before-define
 
-    return (
-        <canvas ref={reactCanvas} {...rest} />
-    )
-}
+  return <canvas ref={reactCanvas} {...rest} />;
+};
 
-export default SceneComponent
+export default SceneComponent;
