@@ -50,6 +50,7 @@ const onSceneReady = (scene, engine) => {
       if (mat) {
         mat.disableLighting = true;
       }
+      return mat
     });
 
     const skeleton = mesh.skeleton;
@@ -62,6 +63,7 @@ const onSceneReady = (scene, engine) => {
         true,
         1.25
       );
+      console.log('->', anim)
     }
   };
 

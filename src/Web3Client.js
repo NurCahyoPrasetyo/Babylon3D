@@ -31,7 +31,7 @@ export const init = async () => {
 
 	const web3 = new Web3(provider);
 
-	const networkId = await web3.eth.net.getId();
+	// const networkId = await web3.eth.net.getId();
 
 	// nftContract = new web3.eth.Contract(
 	// 	NFTContractBuild.abi,
