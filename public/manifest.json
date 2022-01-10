@@ -1,0 +1,8 @@
+{
+	"name": "Accenture | Let there be change",
+	"short_name": "Accenture Virtual Workshop",
+	"start_url": ".",
+	"theme_color": "#ffffff",
+	"background_color": "#ffffff",
+	"display": "standalone"
+}
